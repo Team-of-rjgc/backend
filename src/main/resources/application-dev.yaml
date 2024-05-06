@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: lost-found
+  datasource:
+    password: 123
+    url: jdbc:mysql://localhost:3306/LOST_FOUND?useSSL=false
+    username: root
+  mail:
+    host: smtp.qq.com
+    password: \u6388\u6743\u7801
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+    username: \u90AE\u7BB1
+user:
+  activate:
+    url: http://localhost:8080/api/v1/public/activate/

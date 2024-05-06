@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    druid:
+      filter:
+        stat:
+          log-slow-sql: true
+          slow-sql-millis: 1
+      initial-size: 3
+      max-active: 10
+      max-wait: 60000
+      min-idle: 3
+      stat-view-servlet:
+        enabled: true
+        login-password: 123
+        login-username: root
+      test-on-borrow: true

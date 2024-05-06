@@ -1,0 +1,8 @@
+logging:
+  file: /home/log/lost-found/lost-found.log
+  file.max-size: 10MB
+  level:
+    com:
+      gdut:
+        backend: info
+    root: info

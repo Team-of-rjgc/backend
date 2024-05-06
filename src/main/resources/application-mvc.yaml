@@ -1,0 +1,23 @@
+server:
+  servlet:
+    session:
+      cookie:
+        max-age: -1S
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm
+    serialization:
+      indent-output: true
+  mvc:
+    static-path-pattern: /static/**
+    view:
+      prefix: /
+      suffix: .html
+  resources:
+    static-locations: classpath:/static,classpath:/resources,file:${web.upload-path}
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+web:
+  upload-path: /home/upload/lost-found
