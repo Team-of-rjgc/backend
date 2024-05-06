@@ -23,14 +23,6 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
-/**
- * lost-found
- * com.gdut.backend.service.inter.impl
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/11 14:41 Thursday
- */
 @Service
 public class CategoryServiceImpl implements CategoryService {
     @Autowired

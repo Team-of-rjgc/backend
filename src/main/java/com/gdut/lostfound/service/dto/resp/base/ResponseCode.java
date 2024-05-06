@@ -1,13 +1,6 @@
 package com.gdut.lostfound.service.dto.resp.base;
 
 /**
- * parent
- * demo.web.controller.base
- * 返回状态码
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/01 10:16 Monday
  * @see com.gdut.lostfound.common.constant.enums.ErrorEnum
  */
 public interface ResponseCode {

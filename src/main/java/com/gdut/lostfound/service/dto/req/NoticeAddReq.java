@@ -1,20 +1,13 @@
 package com.gdut.lostfound.service.dto.req;
 
-import com.sun.istack.internal.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
 
+import javax.validation.constraints.NotNull;
 
-/**
- * lost-found
- * com.gdut.backend.service.dto.req
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/21 19:32 Sunday
- */
+
 @Data
 @NoArgsConstructor//不加会报空请求体异常
 @Validated

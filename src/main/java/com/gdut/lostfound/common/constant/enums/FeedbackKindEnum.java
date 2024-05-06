@@ -3,15 +3,6 @@ package com.gdut.lostfound.common.constant.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * lost-found
- * com.gdut.backend.common.constant.enums
- * 反馈类型
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/15 11:07 Monday
- */
 @Getter
 @AllArgsConstructor
 public enum FeedbackKindEnum implements EnumInter {

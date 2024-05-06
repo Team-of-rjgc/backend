@@ -10,15 +10,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
-/**
- * lost-found
- * com.gdut.backend.web.utils
- * base64图片处理工具类
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/15 21:15 Monday
- */
 @Service
 public class ImageUtils {
     /**

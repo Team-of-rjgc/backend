@@ -27,16 +27,6 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
-/**
- * lost-found
- * com.gdut.backend.web.controller
- * 用户相关
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/06 22:03 Saturday
- */
-
 @RestController
 @Validated
 @RequestMapping("/api/v1/user")
@@ -52,8 +42,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
-    // todo 发布寻物
 
     /**
      * 发布启事

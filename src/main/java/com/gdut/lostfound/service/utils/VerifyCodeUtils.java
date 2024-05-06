@@ -7,15 +7,6 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-/**
- * parent
- * demo.web.utils
- * 随机验证码生成工具类
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/03 14:39 Wednesday
- */
 @Service
 public class VerifyCodeUtils {
     /**

@@ -26,15 +26,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 
-/**
- * parent
- * demo.web.config.interceptor
- * 默认拦截器，所有请求
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/03/27 20:15 Wednesday
- */
 public class DefaultInterceptor extends HandlerInterceptorAdapter {
     /**
      * 文件上传最大尺寸，此为一次请求所有文件（单个或多个）的总最大尺寸
@@ -70,7 +61,6 @@ public class DefaultInterceptor extends HandlerInterceptorAdapter {
             }
         }
         /**
-         * todo: 4/15/2019,015 08:52 PM
          * will err
          */
         /* else if(req.getContentLength() > maxUploadSize.toBytes()){

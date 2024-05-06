@@ -7,15 +7,7 @@ import org.slf4j.helpers.MessageFormatter;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-/**
- * lost-found
- * com.gdut.backend.common.utils
- * 异常抛出工具类
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/05 18:39 Friday
- */
+
 public class ExceptionUtils {
     /**
      * 创建异常

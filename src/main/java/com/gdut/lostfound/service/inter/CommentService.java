@@ -7,14 +7,6 @@ import com.gdut.lostfound.service.dto.resp.UserMessage;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-/**
- * lost-found
- * com.gdut.backend.service.inter
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/17 11:15 Wednesday
- */
 public interface CommentService {
     /**
      * 查询评论列表

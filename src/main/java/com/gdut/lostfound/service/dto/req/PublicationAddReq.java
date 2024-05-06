@@ -9,15 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
-/**
- * lost-found
- * com.gdut.backend.service.dto.req
- * 新增启事req
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/15 16:50 Monday
- */
+
 @Data
 @Validated
 @NoArgsConstructor

@@ -26,14 +26,7 @@ import javax.servlet.http.HttpSession;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * lost-found
- * com.gdut.backend.service.inter.impl
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/17 13:46 Wednesday
- */
+
 @Service
 public class CommentServiceImpl implements CommentService {
 

@@ -8,14 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * lost-found
- * com.gdut.backend.dao.inter
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/15 12:01 Monday
- */
 @Repository
 public interface FeedbackDAO extends JpaRepository<Feedback, String> {
     /**

@@ -24,14 +24,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
 
-/**
- * lost-found
- * com.gdut.backend.service.inter.impl
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/22 10:59 Monday
- */
+
 @Service
 public class FeedbackServiceImpl implements FeedbackService {
     @Autowired

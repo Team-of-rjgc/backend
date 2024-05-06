@@ -6,15 +6,6 @@ import lombok.experimental.Accessors;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * lost-found
- * com.gdut.backend.inter.entity
- * 学生信息表
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/06 14:58 Saturday
- */
 @Data
 @Accessors(chain = true)
 @Entity

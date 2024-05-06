@@ -3,15 +3,6 @@ package com.gdut.lostfound.common.constant.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * lost-found
- * com.gdut.backend.common.constant.enums
- * 是非枚举类
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/05 18:28 Friday
- */
 @Getter
 @AllArgsConstructor
 public enum YesNoEnum implements EnumInter {

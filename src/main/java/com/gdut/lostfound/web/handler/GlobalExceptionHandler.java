@@ -19,18 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.ConstraintViolationException;
 
-
-/**
- * parent
- * demo.web.handler
- * 全局Runtime异常处理类
- * 可处理来自Interceptor和Controller抛出的异常
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/03/27 22:23 Wednesday
- */
-
 @Slf4j
 @ControllerAdvice
 @ResponseBody

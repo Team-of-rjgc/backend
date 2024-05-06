@@ -8,15 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
-/**
- * lost-found
- * com.gdut.backend.service.dto.req
- * 反馈回复req
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/22 19:06 Monday
- */
+
 @Data
 @NoArgsConstructor
 @Validated

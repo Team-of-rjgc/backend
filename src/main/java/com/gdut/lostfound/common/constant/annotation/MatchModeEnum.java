@@ -4,15 +4,7 @@ import com.gdut.lostfound.common.constant.enums.EnumInter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * lost-found
- * com.gdut.backend.common.constant.annotation
- * 权限匹配模式枚举
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/19 15:21 星期五
- */
+
 @Getter
 @AllArgsConstructor
 public enum MatchModeEnum implements EnumInter {

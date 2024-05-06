@@ -23,16 +23,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 
-/**
- * parent
- * demo.web.config
- * 自定义异步任务配置
- * https://www.cnblogs.com/yangfanexp/p/7747225.html
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/03/28 09:52 Thursday
- */
 @Configuration
 @EnableAsync
 @Slf4j

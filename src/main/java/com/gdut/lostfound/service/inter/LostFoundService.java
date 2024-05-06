@@ -8,14 +8,6 @@ import com.gdut.lostfound.service.dto.resp.PublicationPageResp;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-/**
- * lost-found
- * com.gdut.backend.service.inter
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/15 21:07 Monday
- */
 public interface LostFoundService {
     /**
      * 发布启事

@@ -23,15 +23,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-/**
- * lost-found
- * com.gdut.backend.web.controller
- * 管理员接口
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/20 14:43 Saturday
- */
 @RestController
 @Validated
 @RequestMapping("/api/v1/admin")

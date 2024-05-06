@@ -27,16 +27,6 @@ import javax.validation.constraints.NotBlank;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-
-/**
- * lost-found
- * com.gdut.backend.web.controller.common
- * 开放接口
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/08 14:47 Monday
- */
 @Controller
 @Validated
 @RequestMapping("/api/v1/public")

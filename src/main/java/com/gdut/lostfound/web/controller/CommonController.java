@@ -17,15 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-/**
- * lost-found
- * com.gdut.backend.web.controller.common
- * 管理员和用户公用接口
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/11 15:37 Thursday
- */
 @RestController
 @Validated
 @RequestMapping("/api/v1/common")

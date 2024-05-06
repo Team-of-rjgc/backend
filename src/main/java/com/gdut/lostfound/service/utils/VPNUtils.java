@@ -15,15 +15,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * lost-found
- * com.gdut.backend.service.utils
- * 用户VPN相关工具类（仅限ECUT）
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/06 11:04 Saturday
- */
 @Service
 public class VPNUtils {
     /**

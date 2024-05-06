@@ -5,15 +5,6 @@ import lombok.experimental.Accessors;
 
 import java.util.Date;
 
-/**
- * lost-found
- * com.gdut.backend.service.dto.resp
- * 通知
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/21 19:35 Sunday
- */
 @Data
 @Accessors(chain = true)
 public class NoticeListResp {

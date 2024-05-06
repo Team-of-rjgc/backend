@@ -5,15 +5,6 @@ import org.springframework.beans.BeanUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * lost-found
- * com.gdut.backend.common.utils
- * 字段处理工具类
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/08 14:04 Monday
- */
 public class FieldUtils {
     /**
      * 复制List中对象的属性到新的List中

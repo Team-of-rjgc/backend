@@ -7,15 +7,6 @@ import lombok.experimental.Accessors;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * lost-found
- * com.gdut.backend.web.controller.dto.resp
- * 统一响应数据
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/05 12:35 Friday
- */
 @Data
 @Accessors(chain = true)
 public class ResponseDTO {

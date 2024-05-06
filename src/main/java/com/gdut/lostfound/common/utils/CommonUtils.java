@@ -14,15 +14,6 @@ import java.util.Date;
 import java.util.UUID;
 
 
-/**
- * parent
- * demo.web.utils
- * 公共工具类
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/03 15:09 Wednesday
- */
 @Slf4j
 public class CommonUtils {
     private static MessageDigest md5 = null;

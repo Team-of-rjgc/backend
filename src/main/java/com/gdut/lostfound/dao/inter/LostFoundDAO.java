@@ -9,14 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Set;
 
-/**
- * lost-found
- * com.gdut.backend.dao.inter
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/15 10:41 Monday
- */
+
 @Repository
 public interface LostFoundDAO extends JpaRepository<LostFound, String> {
     /**

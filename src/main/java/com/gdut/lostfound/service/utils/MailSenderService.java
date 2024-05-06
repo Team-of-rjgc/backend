@@ -23,18 +23,6 @@ import java.nio.charset.Charset;
 import java.util.Date;
 import java.util.Map;
 
-/**
- * parent
- * demo.web.service
- * 邮件发送service，发送示例在test目录下
- * https://www.oschina.net/p/jetbrick-template
- * http://www.runoob.com/java/java-sending-email.html
- * https://www.cnblogs.com/muliu/p/6017622.html
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/03/31 16:32 Sunday
- */
 @Service
 public class MailSenderService {
     @Resource

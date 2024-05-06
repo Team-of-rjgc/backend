@@ -7,15 +7,7 @@ import lombok.experimental.Accessors;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * lost-found
- * com.gdut.backend.dao.entity
- * T_LOG（日志表）
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/15 12:04 Monday
- */
+
 @Data
 @Accessors(chain = true)
 @Entity

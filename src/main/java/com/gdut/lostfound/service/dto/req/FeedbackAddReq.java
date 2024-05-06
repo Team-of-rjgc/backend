@@ -5,15 +5,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.validation.annotation.Validated;
 
-/**
- * lost-found
- * com.gdut.backend.service.dto.req
- * 新增反馈入参
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/22 10:56 Monday
- */
+
 @Data
 @NoArgsConstructor
 @Validated

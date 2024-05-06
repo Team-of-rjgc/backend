@@ -8,15 +8,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-/**
- * lost-found
- * com.gdut.backend.service.dto.req
- * 查询用户信息列表
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/21 10:47 Sunday
- */
 @Data
 @Validated
 @NoArgsConstructor

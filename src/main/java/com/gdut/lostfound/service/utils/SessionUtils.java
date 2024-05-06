@@ -6,15 +6,6 @@ import com.gdut.lostfound.dao.entity.User;
 
 import javax.servlet.http.HttpSession;
 
-/**
- * lost-found
- * com.gdut.backend.service.utils
- * session工具类哦
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/16 19:35 Tuesday
- */
 public class SessionUtils {
     public static User getUser(HttpSession session) {
         return (User) session.getAttribute("user");

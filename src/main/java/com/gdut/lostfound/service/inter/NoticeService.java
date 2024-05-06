@@ -6,14 +6,6 @@ import com.gdut.lostfound.service.dto.resp.NoticeListResp;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-/**
- * lost-found
- * com.gdut.backend.service.inter
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/21 19:34 Sunday
- */
 public interface NoticeService {
     /**
      * 增加通知

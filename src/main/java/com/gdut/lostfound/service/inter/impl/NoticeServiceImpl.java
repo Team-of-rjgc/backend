@@ -19,14 +19,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * lost-found
- * com.gdut.backend.service.inter.impl
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/21 19:40 Sunday
- */
+
 @Service
 public class NoticeServiceImpl implements NoticeService {
     @Autowired

@@ -6,15 +6,6 @@ import lombok.experimental.Accessors;
 import java.util.Date;
 import java.util.List;
 
-/**
- * lost-found
- * com.gdut.backend.service.dto.resp
- * 招领启事详情
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/17 09:30 Wednesday
- */
 @Data
 @Accessors(chain = true)
 public class PublicationDetail {

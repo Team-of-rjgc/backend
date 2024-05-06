@@ -3,15 +3,6 @@ package com.gdut.lostfound.common.utils;
 import com.gdut.lostfound.common.constant.enums.EnumInter;
 import com.gdut.lostfound.common.constant.enums.ErrorEnum;
 
-/**
- * lost-found
- * com.gdut.backend.common.utils
- * 枚举工具类
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/15 20:57 Monday
- */
 public class EnumUtils {
     /**
      * 根据code从枚举中返回desc

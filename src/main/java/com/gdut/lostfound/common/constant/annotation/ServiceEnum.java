@@ -4,15 +4,7 @@ import com.gdut.lostfound.common.constant.enums.EnumInter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * lost-found
- * com.gdut.backend.common.constant.enums
- * 服务码枚举（所有功能）
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/19 10:00 星期五
- */
+
 @Getter
 @AllArgsConstructor
 public enum ServiceEnum implements EnumInter {

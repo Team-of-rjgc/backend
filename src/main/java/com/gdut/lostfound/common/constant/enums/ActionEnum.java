@@ -3,14 +3,6 @@ package com.gdut.lostfound.common.constant.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * lost-found
- * com.gdut.backend.common.constant.enums
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/15 12:43 Monday
- */
 @Getter
 @AllArgsConstructor
 public enum ActionEnum implements EnumInter {

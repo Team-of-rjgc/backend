@@ -3,15 +3,7 @@ package com.gdut.lostfound.common.constant.enums;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * lost-found
- * com.gdut.backend.common.constant.enums
- * 账号状态
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/05 21:11 Friday
- */
+
 @Getter
 @AllArgsConstructor
 public enum AccountStatusEnum implements EnumInter {

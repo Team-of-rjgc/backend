@@ -2,15 +2,7 @@ package com.gdut.lostfound.common.constant.exception;
 
 import lombok.Getter;
 
-/**
- * lost-found
- * com.gdut.backend.common.constant.annotation
- * 失物招领系统异常
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/05 19:04 Friday
- */
+
 @Getter
 public class LostFoundException extends RuntimeException {
     /**

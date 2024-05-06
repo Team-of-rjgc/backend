@@ -10,14 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * lost-found
- * com.gdut.backend.service.inter.impl
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/08 13:55 Monday
- */
 @Service
 public class SchoolServiceImpl implements SchoolService {
 

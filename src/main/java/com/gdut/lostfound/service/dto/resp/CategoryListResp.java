@@ -4,15 +4,6 @@ import lombok.Data;
 
 import java.util.Date;
 
-/**
- * lost-found
- * com.gdut.backend.service.dto.resp
- * 查询类别列表
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/11 14:33 Thursday
- */
 @Data
 public class CategoryListResp {
     /**

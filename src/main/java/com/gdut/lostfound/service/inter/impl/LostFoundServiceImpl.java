@@ -30,14 +30,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
 
-/**
- * lost-found
- * com.gdut.backend.service.inter.impl
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/15 21:09 Monday
- */
+
 @Service
 public class LostFoundServiceImpl implements LostFoundService {
 

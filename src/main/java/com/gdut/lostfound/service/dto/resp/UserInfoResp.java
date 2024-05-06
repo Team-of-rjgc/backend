@@ -5,15 +5,7 @@ import lombok.experimental.Accessors;
 
 import java.util.Date;
 
-/**
- * lost-found
- * com.gdut.backend.service.dto.resp
- * 用户信息
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/20 14:45 Saturday
- */
+
 @Data
 @Accessors(chain = true)
 public class UserInfoResp implements Comparable<UserInfoResp> {

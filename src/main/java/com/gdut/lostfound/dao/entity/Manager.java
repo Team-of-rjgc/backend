@@ -6,15 +6,7 @@ import lombok.experimental.Accessors;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * lost-found
- * com.gdut.backend.inter.entity
- * 管理员表
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/07 19:10 Sunday
- */
+
 @Data
 @Accessors(chain = true)
 @Entity

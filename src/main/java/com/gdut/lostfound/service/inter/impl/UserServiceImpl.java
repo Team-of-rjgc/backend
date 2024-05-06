@@ -35,14 +35,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
-/**
- * lost-found
- * com.gdut.backend.service.inter.impl
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/05 12:20 Friday
- */
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired

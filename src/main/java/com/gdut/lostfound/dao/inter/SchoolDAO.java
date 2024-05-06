@@ -7,14 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * lost-found
- * com.gdut.backend.inter.inter
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/07 19:05 Sunday
- */
 @Repository
 public interface SchoolDAO extends JpaRepository<School, String> {
     /**

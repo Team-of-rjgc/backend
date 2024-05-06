@@ -6,15 +6,7 @@ import lombok.experimental.Accessors;
 
 import java.util.Date;
 
-/**
- * lost-found
- * com.gdut.backend.service.dto.resp
- * 学生认证
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/04/08 15:31 Monday
- */
+
 @Data
 @Accessors(chain = true)
 public class StudentRecognizeResp {

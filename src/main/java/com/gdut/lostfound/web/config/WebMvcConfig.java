@@ -8,15 +8,6 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-/**
- * parent
- * demo.web.config
- * mvc配置类
- *
- * @author BlueDriver
- * @email cpwu@foxmail.com
- * @date 2019/03/27 21:57 Wednesday
- */
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 
