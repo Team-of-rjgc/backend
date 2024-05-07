@@ -5,13 +5,9 @@ import com.gdut.lostfound.common.constant.enums.UserKindEnum;
 import com.gdut.lostfound.common.constant.enums.YesNoEnum;
 import com.gdut.lostfound.common.utils.EnumUtils;
 import com.gdut.lostfound.service.dto.req.CategoryAddReq;
-import com.gdut.lostfound.service.dto.req.FeedbackReplyReq;
-import com.gdut.lostfound.service.dto.req.NoticeAddReq;
 import com.gdut.lostfound.service.dto.req.UserInfoListReq;
 import com.gdut.lostfound.service.dto.resp.base.ResponseDTO;
 import com.gdut.lostfound.service.inter.CategoryService;
-import com.gdut.lostfound.service.inter.FeedbackService;
-import com.gdut.lostfound.service.inter.NoticeService;
 import com.gdut.lostfound.service.inter.UserService;
 import com.gdut.lostfound.service.utils.SessionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,40 +29,6 @@ public class AdminController {
 
     @Autowired
     private CategoryService categoryService;
-
-    @Autowired
-    private NoticeService noticeService;
-
-    @Autowired
-    private FeedbackService feedbackService;
-
-    /**
-     * 新增通知
-     */
-    @PostMapping("/noticeAdd")
-    public ResponseDTO addNotice(@RequestBody @Valid NoticeAddReq req, HttpSession session) throws Exception {
-        noticeService.noticeAdd(req, session);
-        return ResponseDTO.successObj();
-    }
-
-    /**
-     * 删除通知
-     */
-    @PostMapping("/noticeDelete")
-    public ResponseDTO deleteNotice(@NotBlank(message = "通知id不能为空") @RequestParam String id) throws Exception {
-        noticeService.noticeDelete(id);
-        return ResponseDTO.successObj();
-    }
-
-    /**
-     * 通知置顶切换
-     */
-    @PostMapping("/noticeSwitch")
-    public ResponseDTO switchNotice(@NotBlank(message = "通知id不能为空") @RequestParam String id) throws Exception {
-        noticeService.noticeSwitch(id);
-        return ResponseDTO.successObj();
-    }
-
 
     /**
      * 查看用户信息
@@ -145,44 +107,6 @@ public class AdminController {
     public ResponseDTO addCategory(@NotBlank(message = "类别名不能为空") @RequestParam String name, HttpSession session)
             throws Exception {
         categoryService.deleteCategory(name, session);
-        return ResponseDTO.successObj();
-    }
-
-
-    /**
-     * 反馈列表查询
-     */
-    @PostMapping("/listFeedback")
-    public ResponseDTO listFeedback(HttpSession session) throws Exception {
-        return ResponseDTO.successObj("list", feedbackService.listFeedback(session));
-    }
-
-    /**
-     * 回复反馈
-     */
-    @PostMapping("/replyFeedback")
-    public ResponseDTO replyFeedback(@Valid @RequestBody FeedbackReplyReq req, HttpSession session) throws Exception {
-        feedbackService.replyFeedback(req, session);
-        return ResponseDTO.successObj();
-    }
-
-    /**
-     * 反馈标记已读
-     */
-    @PostMapping("/markFeedback")
-    public ResponseDTO markFeedback(@NotBlank(message = "反馈id不能为空") @RequestParam String id, HttpSession session)
-            throws Exception {
-        feedbackService.markFeedback(id, session);
-        return ResponseDTO.successObj();
-    }
-
-    /**
-     * 删除反馈
-     */
-    @PostMapping("/deleteFeedback")
-    public ResponseDTO deleteFeedback(@NotBlank(message = "反馈id不能为空") @RequestParam String id, HttpSession session)
-            throws Exception {
-        feedbackService.deleteFeedback(id, session);
         return ResponseDTO.successObj();
     }
 

@@ -7,7 +7,6 @@ import com.gdut.lostfound.common.constant.annotation.ServiceEnum;
 import com.gdut.lostfound.common.constant.annotation.ActionEnum;
 import com.gdut.lostfound.common.constant.enums.UserKindEnum;
 import com.gdut.lostfound.service.dto.req.CommentAddReq;
-import com.gdut.lostfound.service.dto.req.FeedbackAddReq;
 import com.gdut.lostfound.service.dto.req.PublicationAddReq;
 import com.gdut.lostfound.service.dto.req.PublicationListReq;
 import com.gdut.lostfound.service.dto.req.PublicationRemoveReq;
@@ -15,7 +14,6 @@ import com.gdut.lostfound.service.dto.req.SetPasswordReq;
 import com.gdut.lostfound.service.dto.resp.PublicationPageResp;
 import com.gdut.lostfound.service.dto.resp.base.ResponseDTO;
 import com.gdut.lostfound.service.inter.CommentService;
-import com.gdut.lostfound.service.inter.FeedbackService;
 import com.gdut.lostfound.service.inter.LostFoundService;
 import com.gdut.lostfound.service.inter.UserService;
 import org.hibernate.validator.constraints.Length;
@@ -36,9 +34,6 @@ public class UserController {
 
     @Autowired
     private CommentService commentService;
-
-    @Autowired
-    private FeedbackService feedbackService;
 
     @Autowired
     private UserService userService;
@@ -139,17 +134,6 @@ public class UserController {
     @ActionLog(service = ServiceEnum.COMMENT_DELETE, action = ActionEnum.DELETE)
     public ResponseDTO removeComment(@Valid @RequestBody PublicationRemoveReq req, HttpSession session) throws Exception {
         commentService.removeComment(req.getIdList(), session);
-        return ResponseDTO.successObj();
-    }
-
-    /**
-     * 新增反馈
-     */
-    @PostMapping("/addFeedback")
-    @AuthCheck(level = UserKindEnum.STUDENT, mode = MatchModeEnum.MIN)
-    //@ActionLog(service = ServiceEnum.COMMENT_DELETE, action = ActionEnum.DELETE)
-    public ResponseDTO addFeedback(@Valid @RequestBody FeedbackAddReq req, HttpSession session) throws Exception {
-        feedbackService.addFeedback(req, session);
         return ResponseDTO.successObj();
     }
 

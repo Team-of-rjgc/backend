@@ -9,7 +9,6 @@ import com.gdut.lostfound.service.dto.req.StudentRecognizeReq;
 import com.gdut.lostfound.service.dto.req.UserLoginReq;
 import com.gdut.lostfound.service.dto.resp.StudentRecognizeResp;
 import com.gdut.lostfound.service.dto.resp.base.ResponseDTO;
-import com.gdut.lostfound.service.inter.SchoolService;
 import com.gdut.lostfound.service.inter.UserService;
 import com.gdut.lostfound.service.utils.VerifyCodeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,17 +30,9 @@ import java.io.IOException;
 @Validated
 @RequestMapping("/api/v1/public")
 public class PublicController {
-    @Autowired
-    private SchoolService schoolService;
 
     @Autowired
     private VerifyCodeUtils verifyCodeUtils;
-
-    @GetMapping("/schools")
-    @ResponseBody
-    public ResponseDTO schools() {
-        return ResponseDTO.successObj("schools", schoolService.getSchools());
-    }
 
     /**
      * 验证码长度

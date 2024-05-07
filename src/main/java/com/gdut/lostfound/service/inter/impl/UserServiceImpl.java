@@ -41,9 +41,6 @@ public class UserServiceImpl implements UserService {
     private VerifyCodeUtils codeUtils;
 
     @Autowired
-    private VPNUtils vpnUtils;
-
-    @Autowired
     private StudentDAO studentDAO;
 
     @Autowired
@@ -133,9 +130,6 @@ public class UserServiceImpl implements UserService {
             } else if (AccountStatusEnum.NORMAL.equals(user.getStatus())) {
                 //状态正常
 
-                //验证登录
-                vpnUtils.getStudentInfo(req.getUsername(), req.getPassword());
-
                 //更新最后登录时间
                 user.setLastLogin(new Date());
                 userDAO.save(user);
@@ -167,8 +161,6 @@ public class UserServiceImpl implements UserService {
             }
         }
         //学生不存在，新生
-        //认证
-        student = vpnUtils.getStudentInfo(req.getUsername(), req.getPassword());
         student.setId(CommonUtils.getUUID())
                 .setSchoolId(school.getSchoolId())
                 .setUserId(CommonUtils.getUUID());
