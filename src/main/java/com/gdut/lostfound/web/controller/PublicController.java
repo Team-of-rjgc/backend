@@ -2,7 +2,7 @@ package com.gdut.lostfound.web.controller;
 
 import com.gdut.lostfound.common.constant.annotation.ActionLog;
 import com.gdut.lostfound.common.constant.annotation.ServiceEnum;
-import com.gdut.lostfound.common.constant.enums.ActionEnum;
+import com.gdut.lostfound.common.constant.annotation.ActionEnum;
 import com.gdut.lostfound.common.constant.enums.ErrorEnum;
 import com.gdut.lostfound.common.utils.ExceptionUtils;
 import com.gdut.lostfound.service.dto.req.StudentRecognizeReq;

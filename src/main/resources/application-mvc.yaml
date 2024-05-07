@@ -20,4 +20,4 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
 web:
-  upload-path: /home/upload/lost-found
+  upload-path: classpath:/resources/upload/lost-found

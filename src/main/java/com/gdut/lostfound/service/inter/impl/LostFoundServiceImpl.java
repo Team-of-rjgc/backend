@@ -225,6 +225,7 @@ public class LostFoundServiceImpl implements LostFoundService {
         }
         LostFound lostFound = lostFoundOptional.get();
 
+        // todo 可能的并发问题，但这个数量似乎也不一定要求百分百准确
         lostFound.setLookCount(lostFound.getLookCount() + 1);
         lostFoundDAO.saveAndFlush(lostFound);
 

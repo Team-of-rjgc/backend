@@ -1,5 +1,6 @@
 package com.gdut.lostfound.service.dto.req;
 
+import com.gdut.lostfound.common.constant.enums.ApplyKindEnum;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -14,6 +15,9 @@ import java.util.List;
 @Validated
 @NoArgsConstructor
 public class PublicationAddReq {
+    /**
+     * @see ApplyKindEnum
+     */
     @NotNull
     private Integer applyKind;
 

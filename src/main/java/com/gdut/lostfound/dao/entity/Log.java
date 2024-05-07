@@ -1,5 +1,6 @@
 package com.gdut.lostfound.dao.entity;
 
+import com.gdut.lostfound.common.constant.annotation.ActionEnum;
 import com.gdut.lostfound.common.constant.annotation.ServiceEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -35,7 +36,7 @@ public class Log {
     /**
      * 动作码
      *
-     * @see com.gdut.lostfound.common.constant.enums.ActionEnum
+     * @see ActionEnum
      */
     @Column(nullable = false, columnDefinition = "int(11)")
     private Integer actionCode;

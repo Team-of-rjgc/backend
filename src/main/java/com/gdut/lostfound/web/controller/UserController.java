@@ -4,7 +4,7 @@ import com.gdut.lostfound.common.constant.annotation.ActionLog;
 import com.gdut.lostfound.common.constant.annotation.AuthCheck;
 import com.gdut.lostfound.common.constant.annotation.MatchModeEnum;
 import com.gdut.lostfound.common.constant.annotation.ServiceEnum;
-import com.gdut.lostfound.common.constant.enums.ActionEnum;
+import com.gdut.lostfound.common.constant.annotation.ActionEnum;
 import com.gdut.lostfound.common.constant.enums.UserKindEnum;
 import com.gdut.lostfound.service.dto.req.CommentAddReq;
 import com.gdut.lostfound.service.dto.req.FeedbackAddReq;

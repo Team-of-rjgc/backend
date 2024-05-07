@@ -1,7 +1,5 @@
 package com.gdut.lostfound.common.constant.annotation;
 
-import com.gdut.lostfound.common.constant.enums.ActionEnum;
-
 import java.lang.annotation.*;
 
 

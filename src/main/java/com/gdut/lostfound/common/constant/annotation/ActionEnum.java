@@ -1,5 +1,6 @@
-package com.gdut.lostfound.common.constant.enums;
+package com.gdut.lostfound.common.constant.annotation;
 
+import com.gdut.lostfound.common.constant.enums.EnumInter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
