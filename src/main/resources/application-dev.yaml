@@ -6,8 +6,8 @@ spring:
   application:
     name: lost-found
   datasource:
-    password: 123
-    url: jdbc:mysql://localhost:3306/LOST_FOUND?useSSL=false
+    password: root
+    url: jdbc:mysql://10.21.32.86:3306/LOST_FOUND?useSSL=false
     username: root
   mail:
     host: smtp.qq.com

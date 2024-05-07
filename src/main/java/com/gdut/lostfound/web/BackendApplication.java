@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @ComponentScan({"com.gdut.lostfound.*"})
 @EnableJpaRepositories({"com.gdut.lostfound.dao.*"})
-@EntityScan({"com.gdut.backend.dao.*"})
+@EntityScan({"com.gdut.lostfound.dao.*"})
 //jpa扫描问题：https://blog.csdn.net/oarsman/article/details/85268645
 public class BackendApplication {
 
