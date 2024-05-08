@@ -16,20 +16,37 @@ import java.util.List;
 @NoArgsConstructor
 public class PublicationAddReq {
     /**
+     * 0, 失物发布
+     * 1, "认领发布"
+     * 2, "身份认证"
+     * 3, "物品认领"
+     * 4, "账号申诉"
      * @see ApplyKindEnum
      */
     @NotNull
     private Integer applyKind;
 
+    /**
+     * 类别
+     */
     @NotBlank(message = "类别不能为空")
     private String categoryName;
 
+    /**
+     * 标题
+     */
     @NotBlank(message = "标题不能为空")
     private String title;
 
+    /**
+     * 详情
+     */
     @NotBlank(message = "详情不能为空")
     private String about;
 
+    /**
+     * 位置
+     */
     private String location;
 
     /**
@@ -37,6 +54,5 @@ public class PublicationAddReq {
      */
     @NotNull(message = "图片不能为空")
     @Size(max = 3, message = "图片最多3张")
-    // todo 上传图片能否使用minio，额外给出一个接口，让前端先将图片上传，然后后端返回图片id，前端将id传给后端进行帖子的发布
     private List<String> images;
 }
