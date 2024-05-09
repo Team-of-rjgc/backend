@@ -22,20 +22,27 @@ public class User {
     @Column(name = "id", nullable = false, length = 64)
     private String id;
     /**
-     * 用户登录名: 学生为学号，教职工为工号，管理员为邮箱
+     * 昵称
+     */
+    @Column(name = "nick_name", nullable = false, length = 64)
+    private String nickName;
+
+    /**
+     * 用户登录名
      */
     @Column(name = "username", nullable = false, length = 64)
     private String username;
+
     /**
      * 登录密码（独立）md5加密后存储
      */
     @Column(name = "password", nullable = false, length = 64)
     private String password;
-    /**
-     * 激活码
-     */
-    @Column(name = "activate_code", nullable = false, length = 64)
-    private String activateCode;
+//    /**
+//     * 激活码
+//     */
+//    @Column(name = "activate_code", nullable = false, length = 64)
+//    private String activateCode;
     /**
      * 邮箱
      */
@@ -87,19 +94,19 @@ public class User {
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date lastLogin;
     /**
-     * 用户类型：0：学生,1：教职工,2：管理员
+     * 用户类型：0：用户,1：管理员
      *
      * @see com.gdut.lostfound.common.constant.enums.UserKindEnum
      */
     @Column(nullable = false, columnDefinition = "int(11) default 0")
     private Integer kind;
-    /**
-     * 用户状态：0：无效（未激活, 1：正常（已激活）, 2：已冻结, 3：已注销, 4：审核中
-     *
-     * @see com.gdut.lostfound.common.constant.enums.AccountStatusEnum
-     */
-    @Column(nullable = false, columnDefinition = "int(11) default 0")
-    private Integer status;
+//    /**
+//     * 用户状态：0：无效（未激活, 1：正常（已激活）, 2：已冻结, 3：已注销, 4：审核中
+//     *
+//     * @see com.gdut.lostfound.common.constant.enums.AccountStatusEnum
+//     */
+//    @Column(nullable = false, columnDefinition = "int(11) default 0")
+//    private Integer status;
     /**
      * 记录状态：0：已删除1：有效
      *

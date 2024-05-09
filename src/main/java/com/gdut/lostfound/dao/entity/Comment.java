@@ -25,15 +25,11 @@ public class Comment {
     private String id;
     /**
      * 寻招id
-     *
-     * @see LostFound#id
      */
     @Column(name = "lost_found_id", nullable = false, length = 64)
     private String lostFoundId;
     /**
      * 用户id
-     *
-     * @see User#id
      */
     @Column(name = "user_id", nullable = false, length = 64)
     private String userId;
