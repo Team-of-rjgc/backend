@@ -1,5 +1,5 @@
 logging:
-  file: classpath:/resources/log/lost-found/lost-found.log
+  file: /opt/lostFound/resources/log/lost-found/lost-found.log
   file.max-size: 10MB
   level:
     com:

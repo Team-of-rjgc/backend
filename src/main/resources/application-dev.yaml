@@ -23,10 +23,5 @@ spring:
     password: jtumuiukvulhecaf
     port: 465
 
-
-user:
-  activate:
-    url: http://localhost:8080/api/v1/public/activate/
-
 code:
   expiration: 300

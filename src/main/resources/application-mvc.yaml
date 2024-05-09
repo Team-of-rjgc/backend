@@ -14,10 +14,10 @@ spring:
       prefix: /
       suffix: .html
   resources:
-    static-locations: classpath:/static,classpath:/resources,file:${web.upload-path}
+    static-locations: /opt/lostFound/static,/opt/lostFound/resources,file:${web.upload-path}
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
 web:
-  upload-path: classpath:/resources/upload/lost-found
+  upload-path: /opt/lostFound/resources/upload/lost-found
