@@ -9,14 +9,24 @@ spring:
     password: root
     url: jdbc:mysql://10.21.32.86:3306/LOST_FOUND?useSSL=false
     username: root
+
+  redis:
+    database: 5
+    host: 10.21.32.86
+    port: 6379
+    password: topview
+
   mail:
     host: smtp.qq.com
-    password: \u6388\u6743\u7801
-    properties:
-      mail:
-        transport:
-          protocol: smtp
-    username: \u90AE\u7BB1
+    from: 2496651417@qq.com
+    username: 2496651417@qq.com
+    password: jtumuiukvulhecaf
+    port: 465
+
+
 user:
   activate:
     url: http://localhost:8080/api/v1/public/activate/
+
+code:
+  expiration: 300
