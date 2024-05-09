@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,7 +44,7 @@ public class PublicController {
     private UserService userService;
 
     /**
-     * 生成随机验证码
+     * 生成随机验证码(用于登录)
      */
     @GetMapping("/verifyCode")
     public void verifyCode(HttpServletResponse response, HttpSession session) throws IOException {
@@ -63,14 +62,27 @@ public class PublicController {
 
 
     /**
-     * 获取邮箱验证码
+     * 获取注册需要的邮箱验证码
      *
      * @param email 邮箱
      */
     @ResponseBody
-    @GetMapping(value = "/getEmailCode")
-    public ResponseDTO getEmailCode(@RequestParam("email") String email) {
-        userService.sendMailCode(email);
+    @GetMapping(value = "/getRegisterEmailCode")
+    public ResponseDTO getRegisterEmailCode(@RequestParam("email") String email) {
+        userService.sendRegisterMailCode(email);
+        return ResponseDTO.successObj();
+    }
+
+
+    /**
+     * 获取重置密码需要的邮箱验证码
+     *
+     * @param email 邮箱
+     */
+    @ResponseBody
+    @GetMapping(value = "/getResetEmailCode")
+    public ResponseDTO getResetEmailCode(@RequestParam("email") String email) {
+        userService.sendResetMailCode(email);
         return ResponseDTO.successObj();
     }
 

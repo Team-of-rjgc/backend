@@ -10,15 +10,37 @@ import java.util.Date;
 @Data
 @Accessors(chain = true)
 public class StudentRecognizeResp {
-    private String studentNum;
+    /**
+     * 真实姓名
+     */
     private String realName;
+    /**
+     * 头像
+     */
     private String icon;
-    private String schoolName;
+    /**
+     * 用户类型
+     */
     private Integer kind;
+    /**
+     * 邮箱
+     */
     private String email;
+    /**
+     * 手机号
+     */
     private String phoneNumber;
+    /**
+     * 性别
+     */
     private Integer gender;
+    /**
+     * 创建时间
+     */
     private String createTime;
+    /**
+     * 最后登录时间
+     */
     private String lastLogin;
 
     public StudentRecognizeResp setCreateTime(Date date) {

@@ -2,18 +2,25 @@ package com.gdut.lostfound.service.inter;
 
 import com.gdut.lostfound.service.dto.req.*;
 import com.gdut.lostfound.service.dto.resp.StudentRecognizeResp;
-import com.gdut.lostfound.service.dto.resp.UserInfoListResp;
-import com.gdut.lostfound.service.dto.resp.UserInfoResp;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 
 public interface UserService {
     /**
-     * 向指定邮箱发送
+     * 向指定邮箱发送注册需要的验证码
      *
      * @param email 邮箱号
      */
-    void sendMailCode(String email);
+    void sendRegisterMailCode(String email);
+
+
+    /**
+     * 向指定邮箱发送重置密码需要的验证码
+     *
+     * @param email 邮箱号
+     */
+    void sendResetMailCode(String email);
 
     /**
      * 注册
@@ -50,7 +57,7 @@ public interface UserService {
     /**
      * 修改头像
      */
-    String setIcon(String icon, HttpSession session) throws Exception;
+    String setIcon(MultipartFile image, HttpSession session) throws Exception;
 
 //    /**
 //     * 用户设置为管理员

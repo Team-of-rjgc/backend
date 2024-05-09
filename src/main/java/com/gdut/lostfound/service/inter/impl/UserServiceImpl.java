@@ -17,7 +17,6 @@ import com.gdut.lostfound.service.dto.resp.StudentRecognizeResp;
 import com.gdut.lostfound.service.inter.EmailService;
 import com.gdut.lostfound.service.inter.UserService;
 import com.gdut.lostfound.service.utils.*;
-import jetbrick.util.StringUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,6 +24,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.util.*;
@@ -47,12 +47,40 @@ public class UserServiceImpl implements UserService {
     private final RedisUtil redisUtil;
     private final EmailService emailService;
 
+
     @Override
-    public void sendMailCode(String email) {
+    public void sendRegisterMailCode(String email) {
 
         // 查看注册邮箱是否存在
         if (userDAO.findByEmailEquals(email) != null) {
             throw new RuntimeException("注册邮箱已存在");
+        }
+
+        // 获取发送邮箱验证码的HTML模板
+        TemplateEngine engine = TemplateUtil.createEngine(new TemplateConfig("templates/mail", TemplateConfig.ResourceMode.CLASSPATH));
+        Template template = engine.getTemplate("email-code.html");
+
+        // 从redis缓存中尝试获取验证码
+        Object code = redisUtil.get(email);
+        if (code == null) {
+            // 如果在缓存中未获取到验证码，则产生6位随机数，放入缓存中
+            code = RandomUtil.randomNumbers(6);
+            if (!redisUtil.set(email, code, expiration)) {
+                throw new RuntimeException("后台缓存服务异常");
+            }
+        }
+        // 发送验证码
+        emailService.send(new EmailReq(Collections.singletonList(email),
+                "邮箱验证码", template.render(Dict.create().set("code", code))));
+
+    }
+
+    @Override
+    public void sendResetMailCode(String email) {
+
+        // 查看注册邮箱是否存在
+        if (userDAO.findByEmailEquals(email) == null) {
+            throw new RuntimeException("该邮箱没有注册账号");
         }
 
         // 获取发送邮箱验证码的HTML模板
@@ -207,14 +235,9 @@ public class UserServiceImpl implements UserService {
      * 修改头像
      */
     @Override
-    public String setIcon(String icon, HttpSession session) throws Exception {
+    public String setIcon(MultipartFile image, HttpSession session) throws Exception {
         User user = SessionUtils.checkAndGetUser(session);
-        icon = imageUtils.getBase64Image(icon);
-        if (StringUtils.isEmpty(icon)) {
-            return null;
-        }
-        Base64.Decoder decoder = Base64.getDecoder();
-        String fileName = imageUtils.copyFileToResource(decoder.decode(icon)).getFilename();
+        String fileName = imageUtils.copyFileToResource(image.getBytes()).getFilename();
         user.setIcon(fileName);
         userDAO.saveAndFlush(user);
         return fileName;

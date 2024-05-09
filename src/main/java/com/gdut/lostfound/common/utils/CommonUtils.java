@@ -98,7 +98,9 @@ public class CommonUtils {
     }
 
     public static Long getLongByDate(Date date) {
-        if (date == null) return null;
+        if (date == null) {
+            return null;
+        }
         return date.getTime();
     }
 

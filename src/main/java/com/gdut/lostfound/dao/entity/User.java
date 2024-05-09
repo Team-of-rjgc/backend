@@ -94,7 +94,7 @@ public class User {
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date lastLogin;
     /**
-     * 用户类型：0：用户,1：管理员
+     *  用户类型：0：学生,1：教职工,2：管理员
      *
      * @see com.gdut.lostfound.common.constant.enums.UserKindEnum
      */

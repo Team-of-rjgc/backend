@@ -15,10 +15,12 @@ import com.gdut.lostfound.service.inter.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @RestController
 @Validated
@@ -39,9 +41,9 @@ public class UserController {
     @PostMapping("/setNickName")
     @AuthCheck(level = UserKindEnum.STUDENT)
     public ResponseDTO setNickName(@NotBlank(message = "昵称不能为空")
-                               @RequestBody String nickName,
+                               @RequestParam String nickName,
                                HttpSession session) throws Exception {
-        return ResponseDTO.successObj("icon", userService.setNickName(nickName, session));
+        return ResponseDTO.successObj("nickName", userService.setNickName(nickName, session));
     }
 
     /**
@@ -49,10 +51,9 @@ public class UserController {
      */
     @PostMapping("/setIcon")
     @AuthCheck(level = UserKindEnum.STUDENT)
-    public ResponseDTO setIcon(@NotBlank(message = "头像不能为空")
-                               @RequestBody String icon,
+    public ResponseDTO setIcon(@NotNull(message = "上传文件不能为空") @RequestParam("image") MultipartFile image,
                                HttpSession session) throws Exception {
-        return ResponseDTO.successObj("icon", userService.setIcon(icon, session));
+        return ResponseDTO.successObj("icon", userService.setIcon(image, session));
     }
 
     /**
