@@ -18,9 +18,9 @@ public class PublicationComment {
     private String icon;
 
     /**
-     * 用户名（学号等）
+     * 昵称
      */
-    private String username;
+    private String nickName;
     /**
      * 时间
      */

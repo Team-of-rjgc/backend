@@ -5,8 +5,9 @@ import com.gdut.lostfound.common.constant.annotation.ServiceEnum;
 import com.gdut.lostfound.common.constant.annotation.ActionEnum;
 import com.gdut.lostfound.common.constant.enums.ErrorEnum;
 import com.gdut.lostfound.common.utils.ExceptionUtils;
-import com.gdut.lostfound.service.dto.req.StudentRecognizeReq;
+import com.gdut.lostfound.service.dto.req.ResetPasswordReq;
 import com.gdut.lostfound.service.dto.req.UserLoginReq;
+import com.gdut.lostfound.service.dto.req.UserRegisterReq;
 import com.gdut.lostfound.service.dto.resp.StudentRecognizeResp;
 import com.gdut.lostfound.service.dto.resp.base.ResponseDTO;
 import com.gdut.lostfound.service.inter.UserService;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +24,6 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -39,9 +40,12 @@ public class PublicController {
      */
     private static final int codeLength = 5;
 
+
+    @Autowired
+    private UserService userService;
+
     /**
      * 生成随机验证码
-     * http://localhost:8080//api/v1/common/verifyCode
      */
     @GetMapping("/verifyCode")
     public void verifyCode(HttpServletResponse response, HttpSession session) throws IOException {
@@ -57,20 +61,29 @@ public class PublicController {
         ImageIO.write(image, "jpg", response.getOutputStream());
     }
 
-    @Autowired
-    private UserService userService;
 
     /**
-     * 认证/登录
+     * 获取邮箱验证码
+     *
+     * @param email 邮箱
      */
-    @PostMapping("/recognize")
+    @ResponseBody
+    @GetMapping(value = "/getEmailCode")
+    public ResponseDTO getEmailCode(@RequestParam("email") String email) {
+        userService.sendMailCode(email);
+        return ResponseDTO.successObj();
+    }
+
+    /**
+     *  通过邮箱注册
+     * @param userRegisterReq 注册相关信息
+     */
+    @PostMapping(value = "/register")
     @ResponseBody
     @ActionLog(service = ServiceEnum.USER_REG, action = ActionEnum.CREATE)
-    public ResponseDTO studentRecognize(@Valid @RequestBody StudentRecognizeReq req, HttpSession session) throws Exception {
-        checkVerifyCode(session, req.getCode());
-        StudentRecognizeResp resp = userService.recognizeStudent(req, session);
-        session.removeAttribute("code");
-        return ResponseDTO.successObj("user", resp);
+    public ResponseDTO register(@RequestBody UserRegisterReq userRegisterReq) {
+        userService.register(userRegisterReq);
+        return ResponseDTO.successObj();
     }
 
     /**
@@ -79,21 +92,21 @@ public class PublicController {
     @ActionLog(service = ServiceEnum.USER_LOGIN, action = ActionEnum.CREATE)
     @PostMapping("/login")
     @ResponseBody
-    public ResponseDTO userLogin(@Valid @RequestBody UserLoginReq req, HttpSession session) throws Exception {
+    public ResponseDTO login(@Valid @RequestBody UserLoginReq req, HttpSession session) throws Exception {
         checkVerifyCode(session, req.getCode());
-        StudentRecognizeResp resp = userService.loginUser(req, session);
-        session.removeAttribute("code");
+        StudentRecognizeResp resp = userService.login(req, session);
         return ResponseDTO.successObj("user", resp);
     }
 
     /**
-     * 激活账号
+     * 通过邮箱重置密码
      */
-    @RequestMapping(value = "/activate/{code}", method = RequestMethod.GET)
-    public String activate(@NotBlank(message = "激活码不能为空") @PathVariable("code") String code) {
-        return "/static/activate/" + userService.activateUser(code);
+    @PostMapping("/resetPassword")
+    @ResponseBody
+    public ResponseDTO resetPassword(@Valid @RequestBody ResetPasswordReq resetPasswordReq) throws Exception {
+        userService.resetPassword(resetPasswordReq);
+        return ResponseDTO.successObj();
     }
-
 
     /**
      * 校验验证码
@@ -103,6 +116,5 @@ public class PublicController {
             throw ExceptionUtils.createException(ErrorEnum.VERIFY_CODE_ERROR);
         }
     }
-
 
 }

@@ -1,16 +1,19 @@
 package com.gdut.lostfound.service.dto.req;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotBlank;
 
+/**
+ * 认证用户
+ */
 @Data
-@Validated
+@AllArgsConstructor
 @NoArgsConstructor
-public class UserLoginReq {
+public class UserRegisterReq {
     @NotBlank(message = "邮箱不能为空")
     private String email;
 

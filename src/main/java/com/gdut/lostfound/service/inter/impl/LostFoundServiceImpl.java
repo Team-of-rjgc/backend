@@ -58,10 +58,6 @@ public class LostFoundServiceImpl implements LostFoundService {
         EnumUtils.checkAndGetCode(req.getApplyKind(), ApplyKindEnum.values());
 
         User user = SessionUtils.checkAndGetUser(session);
-        //用户状态是否正常
-        if (!AccountStatusEnum.NORMAL.equals(user.getStatus())) {
-            throw ExceptionUtils.createException(ErrorEnum.USER_STATUS_ERROR, user.getUsername(), user.getStatus());
-        }
 
         List<String> imageList = new ArrayList<>(req.getImages().size());
         Base64.Decoder decoder = Base64.getDecoder();

@@ -60,7 +60,7 @@ public class CommentServiceImpl implements CommentService {
             Optional<User> userOptional1 = userDAO.findById(comment.getUserId());
             if (userOptional1.isPresent()) {
                 User user = userOptional1.get();
-                publicationComment.setUsername(user.getUsername())
+                publicationComment.setNickName(user.getNickName())
                         .setIcon(user.getIcon());
             }
             list.add(publicationComment);

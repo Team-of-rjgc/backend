@@ -6,17 +6,12 @@ import com.gdut.lostfound.common.constant.annotation.MatchModeEnum;
 import com.gdut.lostfound.common.constant.annotation.ServiceEnum;
 import com.gdut.lostfound.common.constant.annotation.ActionEnum;
 import com.gdut.lostfound.common.constant.enums.UserKindEnum;
-import com.gdut.lostfound.service.dto.req.CommentAddReq;
-import com.gdut.lostfound.service.dto.req.PublicationAddReq;
-import com.gdut.lostfound.service.dto.req.PublicationListReq;
-import com.gdut.lostfound.service.dto.req.PublicationRemoveReq;
-import com.gdut.lostfound.service.dto.req.SetPasswordReq;
+import com.gdut.lostfound.service.dto.req.*;
 import com.gdut.lostfound.service.dto.resp.PublicationPageResp;
 import com.gdut.lostfound.service.dto.resp.base.ResponseDTO;
 import com.gdut.lostfound.service.inter.CommentService;
 import com.gdut.lostfound.service.inter.LostFoundService;
 import com.gdut.lostfound.service.inter.UserService;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +32,28 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    /**
+     * 设置昵称
+     */
+    @PostMapping("/setNickName")
+    @AuthCheck(level = UserKindEnum.STUDENT)
+    public ResponseDTO setNickName(@NotBlank(message = "昵称不能为空")
+                               @RequestBody String nickName,
+                               HttpSession session) throws Exception {
+        return ResponseDTO.successObj("icon", userService.setNickName(nickName, session));
+    }
+
+    /**
+     * 设置头像
+     */
+    @PostMapping("/setIcon")
+    @AuthCheck(level = UserKindEnum.STUDENT)
+    public ResponseDTO setIcon(@NotBlank(message = "头像不能为空")
+                               @RequestBody String icon,
+                               HttpSession session) throws Exception {
+        return ResponseDTO.successObj("icon", userService.setIcon(icon, session));
+    }
 
     /**
      * 发布启事
@@ -113,8 +130,6 @@ public class UserController {
         return ResponseDTO.successObj("list", commentService.listMessage(session));
     }
 
-    // todo 修改帖子
-
     /**
      * 删除启事
      */
@@ -134,40 +149,6 @@ public class UserController {
     @ActionLog(service = ServiceEnum.COMMENT_DELETE, action = ActionEnum.DELETE)
     public ResponseDTO removeComment(@Valid @RequestBody PublicationRemoveReq req, HttpSession session) throws Exception {
         commentService.removeComment(req.getIdList(), session);
-        return ResponseDTO.successObj();
-    }
-
-    /**
-     * 设置手机号
-     */
-    @PostMapping("/setPhone")
-    @AuthCheck(level = UserKindEnum.STUDENT)
-    public ResponseDTO setPhoneNumber(@NotBlank(message = "手机号不能为空")
-                                      @Length(min = 5, max = 16, message = "手机号长度必须在5-16位")
-                                      @RequestParam String phone,
-                                      HttpSession session) throws Exception {
-        return ResponseDTO.successObj("phone", userService.setPhoneNumber(phone, session));
-
-    }
-
-    /**
-     * 设置头像
-     */
-    @PostMapping("/setIcon")
-    @AuthCheck(level = UserKindEnum.STUDENT)
-    public ResponseDTO setIcon(@NotBlank(message = "头像不能为空")
-                               @RequestBody String icon,
-                               HttpSession session) throws Exception {
-        return ResponseDTO.successObj("icon", userService.setIcon(icon, session));
-    }
-
-    /**
-     * 修改密码
-     */
-    @PostMapping("/setPassword")
-    @AuthCheck(level = UserKindEnum.STUDENT, mode = MatchModeEnum.MIN)
-    public ResponseDTO setPassword(@Valid @RequestBody SetPasswordReq req, HttpSession session) throws Exception {
-        userService.setPassword(req, session);
         return ResponseDTO.successObj();
     }
 
