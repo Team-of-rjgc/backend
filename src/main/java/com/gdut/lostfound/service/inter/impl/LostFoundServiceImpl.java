@@ -108,7 +108,7 @@ public class LostFoundServiceImpl implements LostFoundService {
             lostFoundEx.setKind(req.getKind());
         }
         //category
-        if (!StringUtils.isBlank(req.getCategory())) {
+        if (StringUtils.isNotEmpty(req.getCategory())) {
             Category category = categoryDAO.findByNameEquals(req.getCategory());
             if (category != null) {
                 lostFoundEx.setCategoryId(req.getCategory());
@@ -116,7 +116,7 @@ public class LostFoundServiceImpl implements LostFoundService {
         }
         //keyword
         ExampleMatcher matcher = null;
-        if (!StringUtils.isBlank(req.getKeyword())) {
+        if (StringUtils.isNotEmpty(req.getKeyword())) {
             matcher = ExampleMatcher.matching()
                     .withMatcher("title", ExampleMatcher.GenericPropertyMatchers.contains());//模糊查询，即%{title}%
             lostFoundEx.setTitle(req.getKeyword());
@@ -127,7 +127,7 @@ public class LostFoundServiceImpl implements LostFoundService {
                 .setCampusId(user.getCampusId());
 
         //some one, can only find self
-        if (!StringUtils.isBlank(req.getUsername())) {
+        if (StringUtils.isNotEmpty(req.getUsername())) {
             lostFoundEx.setUserId(user.getId());
         }
 

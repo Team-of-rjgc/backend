@@ -13,22 +13,22 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class PublicationListReq {
     /**
-     * 类型
+     * 类型,不为0（失物发布）、1（认领发布）时，查询全部
      */
     @NotNull
     private Integer kind;
     /**
-     * 类别
+     * 类别，可为空字符串
      */
     @NotNull
     private String category;
     /**
-     * 关键字
+     * title中的关键字
      */
     @NotNull
     private String keyword;
     /**
-     * 学号
+     * 学号,可为空字符串
      */
     @NotNull
     private String username;
