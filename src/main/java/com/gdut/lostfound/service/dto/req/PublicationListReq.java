@@ -27,11 +27,7 @@ public class PublicationListReq {
      */
     @NotNull
     private String keyword;
-    /**
-     * 学号,可为空字符串
-     */
-    @NotNull
-    private String username;
+
     /**
      * 页号
      */
