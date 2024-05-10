@@ -164,6 +164,8 @@ public class UserServiceImpl implements UserService {
         //返回
         StudentRecognizeResp resp = new StudentRecognizeResp();
         resp.setIcon(user.getIcon())
+                .setNickName(user.getNickName())
+                .setRealName(user.getRealName())
                 .setKind(user.getKind())
                 .setEmail(user.getEmail())
                 .setGender(user.getGender())
