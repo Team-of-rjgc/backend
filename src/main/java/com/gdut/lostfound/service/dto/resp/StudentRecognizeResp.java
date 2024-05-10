@@ -15,7 +15,7 @@ public class StudentRecognizeResp {
      */
     private String realName;
     /**
-     * 头像
+     * 头像,这里返回的只是图片名，如果要得到图片需要调用下载文件的接口
      */
     private String icon;
     /**
@@ -34,6 +34,7 @@ public class StudentRecognizeResp {
      * 性别
      */
     private Integer gender;
+
     /**
      * 创建时间
      */

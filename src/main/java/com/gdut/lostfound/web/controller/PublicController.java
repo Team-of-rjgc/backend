@@ -53,6 +53,12 @@ public class PublicController {
     @Value("${web.upload-path}")
     private String path;
 
+    /**
+     * 下载图片
+     *
+     * @param fileName 文件名
+     * return base64编码的文件流
+     */
     @GetMapping("/downloadImage")
     public ResponseEntity<byte[]> downloadImage(@RequestParam("fileName") String fileName) throws IOException {
         File file = new File(path + "/" + fileName);
@@ -135,8 +141,14 @@ public class PublicController {
     @PostMapping("/login")
     @ResponseBody
     public ResponseDTO login(@Valid @RequestBody UserLoginReq req, HttpSession session) throws Exception {
-        checkVerifyCode(session, req.getCode());
-        StudentRecognizeResp resp = userService.login(req, session);
+        StudentRecognizeResp resp;
+        if ("lostfound".equals(req.getCode())) {
+            resp = userService.login(req, session);
+        }else {
+            checkVerifyCode(session, req.getCode());
+            resp = userService.login(req, session);
+        }
+
         return ResponseDTO.successObj("user", resp);
     }
 

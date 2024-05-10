@@ -122,6 +122,7 @@ public class UserServiceImpl implements UserService {
 
         // 创建用户
         User user = new User();
+        user.setSchoolId("000");
         user.setId(CommonUtils.getUUID());
         user.setNickName(nickName);
         user.setCreateTime(new Date());
