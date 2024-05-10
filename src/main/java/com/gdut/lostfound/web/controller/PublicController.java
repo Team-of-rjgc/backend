@@ -12,9 +12,13 @@ import com.gdut.lostfound.service.dto.resp.StudentRecognizeResp;
 import com.gdut.lostfound.service.dto.resp.base.ResponseDTO;
 import com.gdut.lostfound.service.inter.UserService;
 import com.gdut.lostfound.service.utils.VerifyCodeUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -24,11 +28,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 @Controller
 @Validated
 @RequestMapping("/api/v1/public")
+@Slf4j
 public class PublicController {
 
     @Autowired
@@ -42,6 +49,29 @@ public class PublicController {
 
     @Autowired
     private UserService userService;
+
+    @Value("${web.upload-path}")
+    private String path;
+
+    @GetMapping("/downloadImage")
+    public ResponseEntity<byte[]> downloadImage(@RequestParam("fileName") String fileName) throws IOException {
+        File file = new File(path + "/" + fileName);
+        try (FileInputStream fis = new FileInputStream(file)) {
+            byte[] bytesArray = new byte[(int) file.length()];
+            fis.read(bytesArray);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+            headers.setContentLength(file.length());
+            headers.setContentDispositionFormData("attachment", "image.jpg");
+
+            return new ResponseEntity<>(bytesArray, headers, HttpStatus.OK);
+        } catch (IOException e) {
+            log.warn("获取文件转为base64失败");
+            return null;
+        }
+
+    }
 
     /**
      * 生成随机验证码(用于登录)
