@@ -11,6 +11,10 @@ import java.util.Date;
 @Accessors(chain = true)
 public class StudentRecognizeResp {
     /**
+     * 昵称
+     */
+    private String nickName;
+    /**
      * 真实姓名
      */
     private String realName;
