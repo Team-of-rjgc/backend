@@ -127,9 +127,7 @@ public class LostFoundServiceImpl implements LostFoundService {
                 .setCampusId(user.getCampusId());
 
         //some one, can only find self
-
-        lostFoundEx.setUserId(user.getId());
-
+        //lostFoundEx.setUserId(user.getId());
 
         Example<LostFound> lostFoundExample =
                 matcher == null ? Example.of(lostFoundEx) : Example.of(lostFoundEx, matcher);
