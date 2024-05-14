@@ -99,7 +99,10 @@ public class CommentServiceImpl implements CommentService {
 
         List<String> lostIdList = new ArrayList<>(lostFoundList.size());
         lostFoundList.forEach(item -> lostIdList.add(item.getId()));
+
         List<Comment> commentList = commentDAO.findAllByLostFoundIdIn(lostIdList);
+        //去除已删除的评论
+        commentList.removeIf(item -> RecordStatusEnum.DELETED.getCode().equals(item.getRecordStatus()));
 
         List<String> userIdList = new ArrayList<>(commentList.size());
         commentList.forEach(item -> userIdList.add(item.getUserId()));
